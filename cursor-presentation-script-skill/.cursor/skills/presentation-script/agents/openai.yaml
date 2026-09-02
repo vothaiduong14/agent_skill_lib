@@ -1,0 +1,16 @@
+interface:
+  display_name: presentation script
+  short_description: Read PowerPoint (.pptx) presentations and create consultant-grade
+    talking scripts, speaker notes, transitions, and presentation coaching grounded
+    in each slide's actual content. Use when the user asks to prepare, rehearse, present,
+    create talking points, write speaker notes, or improve delivery for a PowerPoint
+    deck.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

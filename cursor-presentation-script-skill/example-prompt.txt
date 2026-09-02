@@ -1,0 +1,13 @@
+Use /presentation-script on ./deck.pptx.
+
+Audience: Senior management
+Objective: Recommend a decision
+Total presentation time: 20 minutes
+
+Output:
+1. Deck storyline and governing thought
+2. Detailed slide-by-slide script
+3. Target timing for each slide
+4. Delivery cues and transitions
+5. Likely audience questions
+6. Five-minute rehearsal cheat sheet
