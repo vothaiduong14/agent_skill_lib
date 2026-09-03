@@ -1,0 +1,27 @@
+interface:
+  display_name: aml model review validator
+  short_description: 'Review and independently challenge AML / financial-crime models
+    and monitoring methodologies used by banks.
+
+    Use for transaction monitoring rules, supervised ML, anomaly / unsupervised models,
+    customer risk rating,
+
+    alert prioritisation, segmentation, screening / matching, and hybrid AML controls.
+    Accepts mixed evidence
+
+    including DOCX, PPTX, XLSX/CSV feature lists and test results, Python scripts,
+    SQL, Jupyter notebooks,
+
+    configuration files, and model documentation. Excludes fraud models unless the
+    user explicitly asks to
+
+    compare AML and fraud methods.'
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
