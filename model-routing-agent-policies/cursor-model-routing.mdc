@@ -1,0 +1,115 @@
+---
+description: Route Cursor work to the least expensive model/subagent that can reliably complete it; escalate for ambiguity, architecture, security, compliance, or failed attempts.
+globs:
+alwaysApply: true
+---
+
+# Model Routing
+
+Use the smallest capability class that can reliably complete the task.
+
+## Fast / mechanical
+Use Explore, GPT-5.6 Luna, Gemini Flash-class models, or another fast model for:
+- repo/file/symbol search
+- extraction
+- formatting
+- renames
+- repetitive edits
+- boilerplate
+- simple fixtures/tests
+- straightforward documentation
+
+## Balanced / default
+Use Auto, Composer 2.5, GPT-5.6 Terra, Claude Sonnet, or an equivalent balanced model for:
+- normal implementation
+- multi-file features
+- refactoring
+- API/frontend/backend work
+- SQL/data engineering
+- routine debugging
+- tests
+- normal code review
+
+## Deep / high-risk
+Use GPT-5.6 Sol, Claude Opus, or an equivalent frontier reasoning model for:
+- architecture
+- difficult root-cause analysis
+- concurrency/distributed systems
+- security/auth/authz
+- destructive migrations
+- financial calculations
+- AML/compliance/regulatory logic
+- high-blast-radius production changes
+
+Use high reasoning effort when available.
+
+# Escalation
+
+Fast -> Balanced when logic, ambiguity, public interfaces, shared abstractions, or non-obvious test failures are involved.
+
+Balanced -> Deep when:
+- one serious attempt fails
+- several plausible root causes remain
+- architecture changes
+- security/financial/compliance logic is involved
+- data loss is possible
+- concurrency/distributed state is central
+- blast radius is large
+
+Do not repeatedly retry the same failed approach.
+
+# De-escalation
+
+Prefer:
+Deep model decides -> Balanced model implements -> Fast model handles repetitive follow-up.
+
+# Subagents
+
+Use subagents for:
+- large repo exploration
+- context-heavy terminal work
+- independent workstreams
+- independent review
+- specialist security/architecture analysis
+
+Avoid subagents for trivial sequential tasks.
+
+The parent agent owns integration and correctness.
+
+# Workflow
+
+1. Read applicable rules and relevant code.
+2. Explore with a fast subagent when discovery would pollute main context.
+3. Classify complexity, ambiguity, risk, and breadth.
+4. Use a balanced model for normal implementation.
+5. Escalate only when evidence warrants it.
+6. Run relevant tests/lint/typecheck/build.
+7. Inspect the diff.
+8. Report exactly what changed and what was verified.
+
+# Verification
+
+Never:
+- fabricate command output
+- claim tests passed unless executed
+- claim files were inspected unless read
+- treat model confidence as evidence
+
+A stronger model does not replace tests.
+
+# High-Risk Override
+
+Use a deep model for decisions involving:
+authentication, authorization, cryptography, secrets, payments, financial calculations, AML, transaction monitoring, sanctions, regulatory/compliance logic, destructive database operations, or major production infrastructure.
+
+# Cost Discipline
+
+Do not use Opus/Sol for grep, formatting, boilerplate, or repetitive edits.
+Do not force cheap models through difficult reasoning that will create rework.
+Use Max/huge-context modes only when context is genuinely the bottleneck.
+
+# Default
+
+Explore/fast models find information.
+Balanced models build.
+Sol/Opus-class models make difficult/high-risk decisions.
